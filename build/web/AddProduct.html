@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="addProductCategory">
+    <head>
+        <title>Add Product Category</title>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+       <script src="js/Controllers/prodCategory.js"></script>
+    </head>
+    <body ng-controller="addProdCatController">
+        <h1 >Add Product Category</h1>
+        <div class="mainTable">
+            <table >
+                <tr>
+                    <td>Enter Product Category:</td>
+                    <td><input type="text" ng-model="category"/></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2">
+                        <button type="button" ng-click="addAttribute()">Add Attributes</button>
+                </td></tr>
+                    </table>
+                <div class="addAttribute" ng-show="showVal">
+                        <table>
+                    <tr>
+                    <td> Enter Attribute Name</td>
+                    <td><input type="text" ng-model="attr.name"/></td>              
+                    </tr>
+                      <tr>
+                    <td>Enter Attribute type</td>
+                    <td><select ng-model="attr.type">
+                            <option ng-repeat="val in types" value="{{val}}">{{val}}</option></select></td>                 
+                    </tr>
+                       <tr>
+                    <td> Enter Attribute Max Length Allowed</td>
+                    <td><input type="text" ng-model="attr.length"/></td>              
+                    </tr>
+                    <tr><td><button type="button" ng-click="saveAttribute()">Save</button></td></tr>
+                        </table>
+                </div>
+                <table>
+               <tr><td></td><td></td></tr>
+                <tr><td colspan="2"> <button type="button" ng-click="persistdata()">Add Product Category</button></td></tr>
+                </table>
+            
+            <br><br>
+             <div class="attrSaved" ng-show="showSavedAttr">
+            <table border="1"> 
+                <caption>Following Product Attributes Added For Category</caption>
+                <thead>
+                    <tr>
+                        <th>Attribute Name</th>
+                        <th>Attribute Type</th>
+                        <th>Maximum Length Allowed</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="attr in  attributes">
+                    <td>{{attr.name}}</td>
+                    <td>{{attr.type}}</td>
+                    <td>{{attr.length}}</td>
+                                  
+            </table>
+             </div>
+        </div>
+     
+    </body>
+</html>
