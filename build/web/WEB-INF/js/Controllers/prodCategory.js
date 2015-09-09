@@ -7,14 +7,14 @@ app.controller('addProdCatController',function($scope,$http){
    //Add Attribute 
     $scope.addAttribute=function() {
         $scope.showVal=true;
-      };
+       };
       
      //Save Attribute
         $scope.saveAttribute=function() {
-       $scope.showSavedAttr=true;
        $scope.attributes.push($scope.attr);
        $scope.attr="";
        $scope.showVal=false;
+       $scope.showSavedAttr=true;
        console.log($scope.attributes);
        console.log($scope.showSavedAttr);
       };
@@ -26,7 +26,6 @@ app.controller('addProdCatController',function($scope,$http){
               method:"POST",
               data: $scope.attributes
           }).success(function(data,status,config,header){
-              alert(data);
               console.log(data);
               console.log(status);
               
@@ -36,6 +35,8 @@ app.controller('addProdCatController',function($scope,$http){
               
           });          
       };
+      
+   
 });
 
 
