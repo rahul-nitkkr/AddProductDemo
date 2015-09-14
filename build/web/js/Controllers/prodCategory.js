@@ -7,6 +7,7 @@ app.controller('addProdCatController',function($scope,$http){
    //Add Attribute 
     $scope.addAttribute=function() {
         $scope.showVal=true;
+          
       };
       
      //Save Attribute
@@ -14,6 +15,7 @@ app.controller('addProdCatController',function($scope,$http){
        $scope.attributes.push($scope.attr);
        $scope.attr="";
        $scope.showVal=false;
+        $scope.showSavedAttr = true;
        console.log($scope.attributes);
       };
       
